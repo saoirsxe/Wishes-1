@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Special Wish for Hajra 🤍</title>
+<title>A Special Wish for Hajra</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 
 <style>
 
-/* ==============================
+/* =====================================================
    RESET
-============================== */
+===================================================== */
 
 *{
     margin:0;
@@ -28,60 +30,81 @@ html{
 }
 
 body{
+
     min-height:100vh;
 
     font-family:"Montserrat", sans-serif;
 
-    color:#34443c;
+    color:#26372f;
 
-    background:
-        radial-gradient(
-            circle at 50% 15%,
-            #fffdf9 0%,
-            #f8f0e4 45%,
-            #eee2d0 100%
-        );
+    background:#f5eee3;
 
     overflow:hidden;
 }
 
 body.opened{
+
     overflow-x:hidden;
     overflow-y:auto;
 }
 
 
-/* ==============================
-   BACKGROUND GLOW
-============================== */
+/* =====================================================
+   BACKGROUND
+===================================================== */
 
-.glow{
+.background{
+
     position:fixed;
 
-    width:300px;
-    height:300px;
+    inset:0;
+
+    z-index:-10;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            #fffdf9 0%,
+            #f8f1e7 40%,
+            #eee2d1 100%
+        );
+}
+
+
+/* =====================================================
+   SOFT GLOW
+===================================================== */
+
+.glow{
+
+    position:fixed;
+
+    width:280px;
+    height:280px;
 
     border-radius:50%;
 
-    background:rgba(192,164,103,.13);
+    background:rgba(190,160,95,0.13);
 
-    filter:blur(80px);
+    filter:blur(70px);
 
     pointer-events:none;
 
-    z-index:-2;
+    z-index:-5;
 
     animation:glowMove 9s ease-in-out infinite alternate;
 }
 
 .glow.one{
-    top:-120px;
-    left:-120px;
+
+    top:-100px;
+    left:-100px;
 }
 
 .glow.two{
-    right:-120px;
-    bottom:-120px;
+
+    right:-100px;
+    bottom:-100px;
 
     animation-delay:3s;
 }
@@ -93,16 +116,17 @@ body.opened{
     }
 
     to{
-        transform:translate(50px,30px);
+        transform:translate(45px,30px);
     }
 }
 
 
-/* ==============================
+/* =====================================================
    OPENING SCREEN
-============================== */
+===================================================== */
 
 .opening{
+
     position:fixed;
 
     inset:0;
@@ -110,8 +134,9 @@ body.opened{
     z-index:100;
 
     display:flex;
-    justify-content:center;
+
     align-items:center;
+    justify-content:center;
 
     padding:20px;
 
@@ -119,7 +144,7 @@ body.opened{
         radial-gradient(
             circle at center,
             #fffdf9,
-            #eee2d0
+            #eee2d1
         );
 
     transition:
@@ -128,17 +153,21 @@ body.opened{
 }
 
 .opening.hide{
+
     opacity:0;
+
     visibility:hidden;
+
     pointer-events:none;
 }
 
 
-/* ==============================
+/* =====================================================
    OPENING PARTICLES
-============================== */
+===================================================== */
 
 .open-particle{
+
     position:absolute;
 
     width:4px;
@@ -146,7 +175,7 @@ body.opened{
 
     border-radius:50%;
 
-    background:#b89a5c;
+    background:#b99a5c;
 
     opacity:.5;
 
@@ -156,7 +185,11 @@ body.opened{
 @keyframes rise{
 
     0%{
-        transform:translateY(110vh) scale(.4);
+
+        transform:
+            translateY(110vh)
+            scale(.4);
+
         opacity:0;
     }
 
@@ -169,56 +202,71 @@ body.opened{
     }
 
     100%{
-        transform:translateY(-20vh) scale(1.2);
+
+        transform:
+            translateY(-20vh)
+            scale(1.2);
+
         opacity:0;
     }
 }
 
 
-/* ==============================
+/* =====================================================
    OPENING CARD
-============================== */
+===================================================== */
 
 .open-card{
 
     width:min(92vw,440px);
 
-    padding:52px 25px;
+    padding:55px 25px;
 
     text-align:center;
 
-    background:rgba(255,255,255,.65);
+    background:#fffdf9;
 
-    border:1px solid rgba(190,164,105,.65);
+    border:1px solid #ddceb0;
 
     border-radius:30px;
 
-    backdrop-filter:blur(18px);
-
     box-shadow:
-        0 30px 90px rgba(60,48,30,.14);
+        0 30px 80px rgba(60,48,30,.15);
 
-    animation:openingAppear 1.5s ease;
+    animation:openingAppear 1.4s ease;
 }
 
 @keyframes openingAppear{
 
     from{
+
         opacity:0;
-        transform:translateY(40px) scale(.95);
+
+        transform:
+            translateY(40px)
+            scale(.95);
     }
 
     to{
+
         opacity:1;
-        transform:translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
+
+/* =====================================================
+   FLOWER ICON
+===================================================== */
+
 .flower-icon{
 
-    font-size:42px;
+    font-size:44px;
 
-    margin-bottom:16px;
+    margin-bottom:18px;
 
     animation:flowerFloat 3s ease-in-out infinite;
 }
@@ -234,6 +282,11 @@ body.opened{
     }
 }
 
+
+/* =====================================================
+   OPENING TEXT
+===================================================== */
+
 .open-small{
 
     font-size:9px;
@@ -242,16 +295,16 @@ body.opened{
 
     text-transform:uppercase;
 
-    color:#947b4c;
+    color:#967c4c;
 }
 
 .open-card h1{
 
-    margin:14px 0 27px;
+    margin:15px 0 28px;
 
     font-family:"Cormorant Garamond",serif;
 
-    font-size:clamp(48px,13vw,68px);
+    font-size:68px;
 
     line-height:.9;
 
@@ -260,17 +313,22 @@ body.opened{
     color:#34443c;
 }
 
+
+/* =====================================================
+   OPEN BUTTON
+===================================================== */
+
 .open-button{
 
     border:none;
 
-    padding:13px 27px;
+    padding:13px 28px;
 
     border-radius:50px;
 
     background:#53685c;
 
-    color:white;
+    color:#ffffff;
 
     font-family:"Montserrat",sans-serif;
 
@@ -278,7 +336,7 @@ body.opened{
 
     cursor:pointer;
 
-    transition:.4s ease;
+    transition:.35s ease;
 
     box-shadow:
         0 10px 25px rgba(50,70,60,.15);
@@ -293,15 +351,17 @@ body.opened{
 }
 
 
-/* ==============================
+/* =====================================================
    MAIN PAGE
-============================== */
+===================================================== */
 
 .page{
 
     min-height:100vh;
 
-    padding:30px 15px 55px;
+    width:100%;
+
+    padding:30px 15px 60px;
 
     display:flex;
 
@@ -313,9 +373,9 @@ body.opened{
 }
 
 
-/* ==============================
+/* =====================================================
    MAIN CARD
-============================== */
+===================================================== */
 
 .card{
 
@@ -327,41 +387,47 @@ body.opened{
 
     text-align:center;
 
-    background:rgba(255,255,255,.73);
+    background:rgba(255,255,255,.78);
 
-    border:1px solid rgba(193,168,110,.65);
+    border:1px solid #d8c9aa;
 
     border-radius:32px;
-
-    backdrop-filter:blur(18px);
 
     box-shadow:
         0 30px 90px rgba(55,45,30,.12);
 
-    animation:cardReveal 1.5s ease;
-
     position:relative;
 
     z-index:5;
+
+    animation:cardReveal 1.5s ease;
 }
 
 @keyframes cardReveal{
 
     from{
+
         opacity:0;
-        transform:translateY(50px) scale(.97);
+
+        transform:
+            translateY(50px)
+            scale(.97);
     }
 
     to{
+
         opacity:1;
-        transform:translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
 
-/* ==============================
-   HEADING
-============================== */
+/* =====================================================
+   SMALL HEADING
+===================================================== */
 
 .eyebrow{
 
@@ -376,18 +442,28 @@ body.opened{
     margin-bottom:12px;
 }
 
+
+/* =====================================================
+   MAIN TITLE
+===================================================== */
+
 .title{
 
     font-family:"Cormorant Garamond",serif;
 
-    font-size:clamp(40px,10vw,64px);
+    font-size:64px;
 
-    line-height:.95;
+    line-height:.92;
 
     font-weight:600;
 
-    color:#34443c;
+    color:#293b32;
 }
+
+
+/* =====================================================
+   NAME
+===================================================== */
 
 .name{
 
@@ -395,17 +471,17 @@ body.opened{
 
     font-family:"Cormorant Garamond",serif;
 
-    font-size:34px;
+    font-size:36px;
 
-    color:#a08350;
+    color:#9c8050;
 
     letter-spacing:1px;
 }
 
 
-/* ==============================
+/* =====================================================
    DIVIDER
-============================== */
+===================================================== */
 
 .divider{
 
@@ -429,11 +505,12 @@ body.opened{
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 
     padding:0 10px;
 
-    background:#fdfbf7;
+    background:#fffdf9;
 
     color:#ae9157;
 
@@ -441,9 +518,9 @@ body.opened{
 }
 
 
-/* ==============================
-   MESSAGE
-============================== */
+/* =====================================================
+   MESSAGE BOX
+===================================================== */
 
 .message{
 
@@ -453,37 +530,52 @@ body.opened{
 
     margin:0 auto;
 
-    padding:20px 17px;
+    padding:22px 18px;
 
-    background:rgba(255,255,255,.78);
+    background:#fffdf9;
 
-    border:1px solid rgba(180,155,95,.20);
+    border:1px solid #e2d8c7;
 
     border-radius:18px;
 
-    color:#182a21;
+    box-shadow:
+        0 8px 25px rgba(50,40,25,.06);
+
+    color:#172a21;
+
+    font-family:"Montserrat",sans-serif;
 
     font-size:12.5px;
 
-    line-height:1.75;
+    line-height:1.78;
 
     text-align:center;
 
     position:relative;
 
-    z-index:10;
+    z-index:20;
 
-    box-shadow:
-        0 8px 25px rgba(60,50,35,.05);
+    opacity:1;
+
+    visibility:visible;
 }
+
+
+/* =====================================================
+   MESSAGE PARAGRAPHS
+===================================================== */
 
 .message p{
 
     display:block;
 
-    margin-bottom:18px;
+    margin:0 0 18px 0;
 
-    color:#182a21;
+    color:#172a21;
+
+    font-size:12.5px;
+
+    line-height:1.78;
 
     opacity:1;
 
@@ -491,57 +583,52 @@ body.opened{
 }
 
 .message p:last-child{
+
     margin-bottom:0;
 }
 
+
+/* =====================================================
+   IMPORTANT WORDS
+===================================================== */
+
 .message strong{
 
-    color:#0b1e15;
+    color:#071b11;
 
     font-weight:600;
 }
 
 
-/* ==============================
+/* =====================================================
    ENDING
-============================== */
+===================================================== */
 
 .ending{
 
-    margin-top:27px;
+    margin-top:28px;
 
-    padding-top:22px;
+    padding-top:23px;
 
     border-top:1px solid #ded4bd;
 
-    animation:endReveal 1.2s ease;
-}
-
-@keyframes endReveal{
-
-    from{
-        opacity:0;
-    }
-
-    to{
-        opacity:1;
-    }
+    text-align:center;
 }
 
 .ending-main{
 
     font-family:"Cormorant Garamond",serif;
 
-    font-size:22px;
+    font-size:23px;
 
-    line-height:1.2;
+    line-height:1.25;
 
     color:#92794b;
 }
 
 .hint{
 
-    margin-top:9px;
+    margin-top:10px;
 
     font-size:9.5px;
 
@@ -553,9 +640,9 @@ body.opened{
 }
 
 
-/* ==============================
+/* =====================================================
    FLOATING FLOWERS
-============================== */
+===================================================== */
 
 .flower{
 
@@ -573,11 +660,13 @@ body.opened{
 }
 
 .flower.one{
+
     top:9%;
     left:5%;
 }
 
 .flower.two{
+
     top:19%;
     right:6%;
 
@@ -585,6 +674,7 @@ body.opened{
 }
 
 .flower.three{
+
     bottom:13%;
     left:7%;
 
@@ -592,6 +682,7 @@ body.opened{
 }
 
 .flower.four{
+
     bottom:8%;
     right:7%;
 
@@ -601,18 +692,24 @@ body.opened{
 @keyframes floatFlower{
 
     0%,100%{
-        transform:translateY(0) rotate(0);
+
+        transform:
+            translateY(0)
+            rotate(0);
     }
 
     50%{
-        transform:translateY(-15px) rotate(8deg);
+
+        transform:
+            translateY(-15px)
+            rotate(8deg);
     }
 }
 
 
-/* ==============================
+/* =====================================================
    FALLING GOLD PARTICLES
-============================== */
+===================================================== */
 
 .petal{
 
@@ -634,6 +731,7 @@ body.opened{
 @keyframes fall{
 
     0%{
+
         transform:
             translateY(-40px)
             translateX(0)
@@ -651,6 +749,7 @@ body.opened{
     }
 
     100%{
+
         transform:
             translateY(110vh)
             translateX(100px)
@@ -661,25 +760,29 @@ body.opened{
 }
 
 
-/* ==============================
+/* =====================================================
    MOBILE
-============================== */
+===================================================== */
 
 @media(max-width:600px){
 
     body.opened{
+
         overflow-x:hidden;
+
         overflow-y:auto;
     }
 
+
     .page{
+
+        display:block;
 
         min-height:100vh;
 
-        padding:20px 12px 50px;
-
-        display:block;
+        padding:20px 12px 60px;
     }
+
 
     .card{
 
@@ -687,10 +790,11 @@ body.opened{
 
         margin:0 auto;
 
-        padding:38px 14px;
+        padding:38px 13px;
 
         border-radius:26px;
     }
+
 
     .eyebrow{
 
@@ -699,47 +803,67 @@ body.opened{
         letter-spacing:3px;
     }
 
+
     .title{
 
         font-size:40px;
     }
+
 
     .name{
 
         font-size:31px;
     }
 
+
     .divider{
 
         margin:23px auto;
     }
 
+
+    /* MESSAGE MOBILE */
+
     .message{
 
         width:100%;
 
-        padding:19px 14px;
+        max-width:100%;
+
+        padding:20px 14px;
+
+        background:#fffdf9;
+
+        border:1px solid #ded4c4;
+
+        color:#172a21;
 
         font-size:12px;
 
         line-height:1.72;
 
-        background:rgba(255,255,255,.82);
-
-        color:#14271e;
     }
+
 
     .message p{
 
-        color:#14271e;
+        color:#172a21;
 
-        margin-bottom:17px;
+        font-size:12px;
+
+        line-height:1.72;
+
+        margin-bottom:16px;
+
     }
+
 
     .message strong{
 
         color:#071b11;
+
     }
+
 
     .ending{
 
@@ -748,53 +872,76 @@ body.opened{
         padding-top:20px;
     }
 
+
     .ending-main{
 
         font-size:20px;
     }
+
 
     .hint{
 
         font-size:9px;
     }
 
+
     .flower{
 
         font-size:19px;
     }
+
 }
 
 
-/* ==============================
-   VERY SMALL SCREEN
-============================== */
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
 
 @media(max-width:360px){
 
     .card{
-        padding:34px 11px;
+
+        padding:34px 10px;
     }
 
+
     .title{
+
         font-size:37px;
     }
 
+
+    .name{
+
+        font-size:29px;
+    }
+
+
     .message{
 
-        padding:17px 12px;
+        padding:18px 11px;
 
         font-size:11.5px;
 
-        line-height:1.7;
+        line-height:1.68;
     }
+
 
     .message p{
-        margin-bottom:15px;
+
+        font-size:11.5px;
+
+        line-height:1.68;
+
+        margin-bottom:14px;
     }
 
+
     .ending-main{
+
         font-size:19px;
     }
+
 }
 
 </style>
@@ -804,19 +951,28 @@ body.opened{
 <body>
 
 
-<!-- ==============================
+<!-- =====================================================
      BACKGROUND
-============================== -->
+===================================================== -->
+
+<div class="background"></div>
 
 <div class="glow one"></div>
+
 <div class="glow two"></div>
 
 
-<!-- ==============================
+<!-- =====================================================
      OPENING SCREEN
-============================== -->
+===================================================== -->
 
-<section class="opening" id="opening">
+<section
+    class="opening"
+    id="opening"
+>
+
+
+    <!-- Opening particles -->
 
     <span
         class="open-particle"
@@ -844,37 +1000,47 @@ body.opened{
     </span>
 
 
+    <!-- Opening card -->
+
     <div class="open-card">
+
 
         <div class="flower-icon">
             🌸
         </div>
 
+
         <div class="open-small">
             A Little Message For You
         </div>
+
 
         <h1>
             Hajra
         </h1>
 
+
         <button
             class="open-button"
-            onclick="openMessage()">
+            onclick="openMessage()"
+        >
             Open Your Message ✨
         </button>
+
 
     </div>
 
 </section>
 
 
-<!-- ==============================
-     MAIN CONTENT
-============================== -->
+<!-- =====================================================
+     MAIN PAGE
+===================================================== -->
 
 <main class="page">
 
+
+    <!-- Floating flowers -->
 
     <div class="flower one">
         🌸
@@ -893,6 +1059,8 @@ body.opened{
     </div>
 
 
+    <!-- Main card -->
+
     <section class="card">
 
 
@@ -902,9 +1070,11 @@ body.opened{
 
 
         <div class="title">
+
             Heartfelt
             <br>
             Congratulations
+
         </div>
 
 
@@ -916,9 +1086,9 @@ body.opened{
         <div class="divider"></div>
 
 
-        <!-- ==============================
+        <!-- =================================================
              PERSONAL MESSAGE
-        ============================== -->
+        ================================================= -->
 
         <div class="message">
 
@@ -973,6 +1143,7 @@ body.opened{
                 <strong>
                     congratulations on this beautiful beginning.
                 </strong>
+
                 May every chapter that follows be filled with
                 happiness, love, laughter, companionship,
                 and countless blessings.
@@ -982,21 +1153,28 @@ body.opened{
         </div>
 
 
-        <!-- ==============================
+        <!-- =================================================
              ENDING
-        ============================== -->
+        ================================================= -->
 
         <div class="ending">
 
+
             <div class="ending-main">
+
                 Wishing you a lifetime of beautiful moments
                 and an extraordinary journey ahead. 🤍
+
             </div>
 
+
             <div class="hint">
+
                 With warmest wishes, from someone who has
                 a very good reason to wish you today. ✨
+
             </div>
+
 
         </div>
 
@@ -1006,67 +1184,85 @@ body.opened{
 </main>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-/* ==============================
+
+/* =====================================================
    OPEN MESSAGE
-============================== */
+===================================================== */
 
 function openMessage(){
 
-    document
-        .getElementById("opening")
-        .classList
-        .add("hide");
+    const opening =
+        document.getElementById("opening");
 
-    document
-        .body
-        .classList
-        .add("opened");
+    opening.classList.add("hide");
+
+    document.body.classList.add("opened");
+
 }
 
 
-/* ==============================
+/* =====================================================
    FALLING GOLDEN PARTICLES
-============================== */
+===================================================== */
 
 const symbols = [
+
     "✦",
     "✧",
     "·",
     "❋"
+
 ];
 
+
 for(let i = 0; i < 18; i++){
+
 
     const petal =
         document.createElement("div");
 
-    petal.className = "petal";
+
+    petal.className =
+        "petal";
+
 
     petal.innerHTML =
         symbols[
             Math.floor(
-                Math.random() * symbols.length
+                Math.random() *
+                symbols.length
             )
         ];
+
 
     petal.style.left =
         Math.random() * 100 + "vw";
 
+
     petal.style.fontSize =
         (7 + Math.random() * 11) + "px";
+
 
     petal.style.animationDuration =
         (7 + Math.random() * 9) + "s";
 
+
     petal.style.animationDelay =
         Math.random() * 8 + "s";
 
+
     document.body.appendChild(petal);
+
 }
 
 </script>
+
 
 </body>
 </html>
