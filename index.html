@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Special Wish for Hajra 🤍</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ==============================
+   RESET
+============================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+
+    font-family:"Montserrat",sans-serif;
+
+    color:#39483f;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            #fffdf9 0%,
+            #f8f0e4 45%,
+            #eee2d0 100%
+        );
+
+    overflow:hidden;
+
+    transition:1s ease;
+}
+
+body.opened{
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+
+/* ==============================
+   BACKGROUND GLOW
+============================== */
+
+.glow{
+    position:fixed;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    background:rgba(192,164,103,.14);
+
+    filter:blur(80px);
+
+    pointer-events:none;
+
+    z-index:-2;
+
+    animation:glowMove 9s ease-in-out infinite alternate;
+}
+
+.glow.one{
+    top:-120px;
+    left:-120px;
+}
+
+.glow.two{
+    right:-120px;
+    bottom:-120px;
+
+    animation-delay:3s;
+}
+
+@keyframes glowMove{
+
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(50px,30px);
+    }
+}
+
+
+/* ==============================
+   OPENING SCREEN
+============================== */
+
+.opening{
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fffdf9,
+            #eee2d0
+        );
+
+    transition:
+        opacity 1.4s ease,
+        visibility 1.4s ease;
+}
+
+.opening.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+
+/* ==============================
+   OPENING PARTICLES
+============================== */
+
+.open-particle{
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#b89a5c;
+
+    opacity:.5;
+
+    animation:rise 8s linear infinite;
+}
+
+@keyframes rise{
+
+    0%{
+        transform:translateY(110vh) scale(.4);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.6;
+    }
+
+    80%{
+        opacity:.5;
+    }
+
+    100%{
+        transform:translateY(-20vh) scale(1.2);
+        opacity:0;
+    }
+}
+
+
+/* ==============================
+   OPENING CARD
+============================== */
+
+.open-card{
+
+    width:min(92vw,440px);
+
+    padding:55px 28px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.58);
+
+    border:1px solid rgba(190,164,105,.65);
+
+    border-radius:30px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 30px 90px rgba(60,48,30,.14);
+
+    animation:openingAppear 1.5s ease;
+}
+
+@keyframes openingAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(40px) scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.flower-icon{
+
+    font-size:45px;
+
+    margin-bottom:18px;
+
+    animation:flowerFloat 3s ease-in-out infinite;
+}
+
+@keyframes flowerFloat{
+
+    0%,100%{
+        transform:translateY(0) rotate(0);
+    }
+
+    50%{
+        transform:translateY(-10px) rotate(6deg);
+    }
+}
+
+.open-small{
+
+    font-size:9px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#947b4c;
+}
+
+.open-card h1{
+
+    margin:15px 0 28px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(48px,13vw,68px);
+
+    line-height:.9;
+
+    font-weight:600;
+}
+
+.open-button{
+
+    border:none;
+
+    padding:13px 28px;
+
+    border-radius:50px;
+
+    background:#53685c;
+
+    color:white;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:12px;
+
+    cursor:pointer;
+
+    transition:.4s ease;
+
+    box-shadow:
+        0 10px 25px rgba(50,70,60,.15);
+}
+
+.open-button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 16px 35px rgba(50,70,60,.25);
+}
+
+
+/* ==============================
+   MAIN PAGE
+============================== */
+
+.page{
+
+    min-height:100vh;
+
+    padding:45px 18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+}
+
+
+/* ==============================
+   MAIN CARD
+============================== */
+
+.card{
+
+    width:min(94vw,680px);
+
+    padding:60px 38px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.68);
+
+    border:1px solid rgba(193,168,110,.7);
+
+    border-radius:34px;
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 35px 100px rgba(55,45,30,.13);
+
+    animation:cardReveal 1.8s ease;
+
+    position:relative;
+
+    z-index:5;
+}
+
+@keyframes cardReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(60px) scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+
+/* ==============================
+   HEADING
+============================== */
+
+.eyebrow{
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#967c4c;
+
+    margin-bottom:15px;
+}
+
+.title{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(42px,10vw,68px);
+
+    line-height:.95;
+
+    font-weight:600;
+
+    color:#34443c;
+
+    animation:titleReveal 1.8s ease;
+}
+
+@keyframes titleReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+.name{
+
+    margin-top:12px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:38px;
+
+    color:#a08350;
+
+    letter-spacing:1px;
+}
+
+
+/* ==============================
+   DIVIDER
+============================== */
+
+.divider{
+
+    width:100px;
+
+    height:1px;
+
+    margin:32px auto;
+
+    background:#c9b887;
+
+    position:relative;
+}
+
+.divider::after{
+
+    content:"✦";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    padding:0 12px;
+
+    background:#fdfbf7;
+
+    color:#ae9157;
+
+    font-size:13px;
+}
+
+
+/* ==============================
+   MESSAGE
+============================== */
+
+.message{
+
+    max-width:540px;
+
+    margin:auto;
+
+    color:#59645e;
+
+    font-size:14px;
+
+    line-height:2;
+
+    text-align:center;
+}
+
+.message p{
+
+    margin-bottom:22px;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    animation:textReveal 1.2s ease forwards;
+}
+
+.message p:nth-child(1){
+    animation-delay:.4s;
+}
+
+.message p:nth-child(2){
+    animation-delay:.8s;
+}
+
+.message p:nth-child(3){
+    animation-delay:1.2s;
+}
+
+.message p:nth-child(4){
+    animation-delay:1.6s;
+}
+
+.message p:nth-child(5){
+    animation-delay:2s;
+}
+
+.message strong{
+
+    color:#3e5047;
+
+    font-weight:500;
+}
+
+
+/* ==============================
+   ENDING HINT
+============================== */
+
+.ending{
+
+    margin-top:35px;
+
+    padding-top:25px;
+
+    border-top:1px solid #ded4bd;
+
+    opacity:0;
+
+    animation:endReveal 1.5s ease forwards;
+
+    animation-delay:2.4s;
+}
+
+@keyframes endReveal{
+
+    to{
+        opacity:1;
+    }
+}
+
+.ending-main{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:24px;
+
+    color:#92794b;
+}
+
+.hint{
+
+    margin-top:10px;
+
+    font-size:11px;
+
+    letter-spacing:.5px;
+
+    color:#7b817b;
+
+    font-style:italic;
+}
+
+
+/* ==============================
+   FLOATING FLOWERS
+============================== */
+
+.flower{
+
+    position:absolute;
+
+    font-size:27px;
+
+    opacity:.5;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    animation:floatFlower 6s ease-in-out infinite;
+}
+
+.flower.one{
+    top:12%;
+    left:6%;
+}
+
+.flower.two{
+    top:22%;
+    right:7%;
+    animation-delay:1s;
+}
+
+.flower.three{
+    bottom:14%;
+    left:8%;
+    animation-delay:2s;
+}
+
+.flower.four{
+    bottom:10%;
+    right:8%;
+    animation-delay:3s;
+}
+
+@keyframes floatFlower{
+
+    0%,100%{
+        transform:translateY(0) rotate(0);
+    }
+
+    50%{
+        transform:translateY(-15px) rotate(8deg);
+    }
+}
+
+
+/* ==============================
+   FALLING PETALS
+============================== */
+
+.petal{
+
+    position:fixed;
+
+    top:-30px;
+
+    z-index:3;
+
+    pointer-events:none;
+
+    color:#b99b62;
+
+    opacity:.55;
+
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+
+    0%{
+        transform:
+            translateY(-40px)
+            translateX(0)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:.6;
+    }
+
+    90%{
+        opacity:.5;
+    }
+
+    100%{
+        transform:
+            translateY(110vh)
+            translateX(100px)
+            rotate(360deg);
+
+        opacity:0;
+    }
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width:600px){
+
+    .page{
+        padding:30px 13px;
+    }
+
+    .card{
+        padding:45px 20px;
+        border-radius:28px;
+    }
+
+    .message{
+        font-size:13px;
+        line-height:1.95;
+    }
+
+    .flower{
+        font-size:21px;
+    }
+
+    .name{
+        font-size:32px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+
+<!-- ==============================
+     OPENING
+============================== -->
+
+<section class="opening" id="opening">
+
+    <span class="open-particle" style="left:8%;animation-delay:0s"></span>
+    <span class="open-particle" style="left:25%;animation-delay:2s"></span>
+    <span class="open-particle" style="left:45%;animation-delay:4s"></span>
+    <span class="open-particle" style="left:65%;animation-delay:1s"></span>
+    <span class="open-particle" style="left:85%;animation-delay:3s"></span>
+
+
+    <div class="open-card">
+
+        <div class="flower-icon">
+            🌸
+        </div>
+
+        <div class="open-small">
+            A Little Message For You
+        </div>
+
+        <h1>
+            Hajra
+        </h1>
+
+        <button
+            class="open-button"
+            onclick="openMessage()"
+        >
+            Open Your Message ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     MAIN MESSAGE
+============================== -->
+
+<main class="page">
+
+
+    <!-- Floating flowers -->
+
+    <div class="flower one">🌸</div>
+    <div class="flower two">🌿</div>
+    <div class="flower three">🌸</div>
+    <div class="flower four">🌿</div>
+
+
+    <section class="card">
+
+
+        <div class="eyebrow">
+            A Special Occasion
+        </div>
+
+
+        <div class="title">
+            Heartfelt
+            <br>
+            Congratulations
+        </div>
+
+
+        <div class="name">
+            Hajra
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <div class="message">
+
+
+            <p>
+                Heartfelt congratulations on your engagement! 🤍
+            </p>
+
+
+            <p>
+                On this beautiful occasion, I wanted to take a
+                moment to send my warmest wishes as you step
+                into what promises to be one of the most
+                meaningful chapters of your life.
+            </p>
+
+
+            <p>
+                An engagement is not merely a celebration;
+                it is the beginning of a journey filled with
+                new dreams, shared aspirations, cherished
+                moments, and countless memories waiting
+                to be created.
+            </p>
+
+
+            <p>
+                May this new chapter unfold with grace,
+                peace, and happiness. May your journey ahead
+                always be accompanied by understanding,
+                patience, kindness, and genuine companionship.
+                May you both continue to grow together,
+                support one another through every circumstance,
+                and find happiness not only in extraordinary
+                moments, but also in the quiet and simple ones
+                that make life truly beautiful.
+            </p>
+
+
+            <p>
+                May Allah bless this beautiful beginning with
+                His endless mercy and barakah. May He grant
+                you both a life filled with tranquillity,
+                prosperity, mutual respect, and unwavering
+                affection. May He protect your bond from every
+                hardship and bless your future with countless
+                reasons to smile, celebrate, and be grateful.
+            </p>
+
+
+            <p>
+                I hope the years ahead bring you beautiful
+                experiences, unforgettable memories, and a life
+                that becomes even more wonderful with every
+                passing chapter. May every dream you carry into
+                this new phase find its way towards fulfilment,
+                and may your future be filled with opportunities
+                that make you proud and moments that make your
+                heart genuinely happy.
+            </p>
+
+
+            <p>
+                Once again, <strong>congratulations on this
+                beautiful beginning.</strong> May this be the
+                first page of a truly remarkable story, and may
+                every page that follows be filled with happiness,
+                love, laughter, companionship, and blessings.
+            </p>
+
+
+        </div>
+
+
+        <!-- ENDING -->
+
+        <div class="ending">
+
+            <div class="ending-main">
+                Wishing you a lifetime of beautiful moments
+                and an extraordinary journey ahead. 🤍
+            </div>
+
+            <div class="hint">
+                With warmest wishes, from someone who has
+                a very good reason to wish you today. ✨
+            </div>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+<script>
+
+/* ==============================
+   OPEN MESSAGE
+============================== */
+
+function openMessage(){
+
+    document
+        .getElementById("opening")
+        .classList
+        .add("hide");
+
+    document
+        .body
+        .classList
+        .add("opened");
+
+}
+
+
+/* ==============================
+   FALLING GOLDEN PARTICLES
+============================== */
+
+const symbols = [
+    "✦",
+    "✧",
+    "·",
+    "❋"
+];
+
+for(let i = 0; i < 20; i++){
+
+    const petal =
+        document.createElement("div");
+
+    petal.className = "petal";
+
+    petal.innerHTML =
+        symbols[
+            Math.floor(
+                Math.random() * symbols.length
+            )
+        ];
+
+    petal.style.left =
+        Math.random() * 100 + "vw";
+
+    petal.style.fontSize =
+        (7 + Math.random() * 12) + "px";
+
+    petal.style.animationDuration =
+        (7 + Math.random() * 9) + "s";
+
+    petal.style.animationDelay =
+        Math.random() * 8 + "s";
+
+    document.body.appendChild(petal);
+
+}
+
+</script>
+
+</body>
+</html>
