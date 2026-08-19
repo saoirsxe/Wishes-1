@@ -13,9 +13,9 @@
 
 <style>
 
-/* ==============================
+/* =========================================
    RESET
-============================== */
+========================================= */
 
 *{
     margin:0;
@@ -30,9 +30,9 @@ html{
 body{
     min-height:100vh;
 
-    font-family:"Montserrat",sans-serif;
+    font-family:"Montserrat", sans-serif;
 
-    color:#39483f;
+    color:#34443c;
 
     background:
         radial-gradient(
@@ -53,19 +53,19 @@ body.opened{
 }
 
 
-/* ==============================
-   BACKGROUND GLOW
-============================== */
+/* =========================================
+   SOFT BACKGROUND GLOW
+========================================= */
 
 .glow{
     position:fixed;
 
-    width:300px;
-    height:300px;
+    width:320px;
+    height:320px;
 
     border-radius:50%;
 
-    background:rgba(192,164,103,.14);
+    background:rgba(192,164,103,.13);
 
     filter:blur(80px);
 
@@ -100,9 +100,9 @@ body.opened{
 }
 
 
-/* ==============================
+/* =========================================
    OPENING SCREEN
-============================== */
+========================================= */
 
 .opening{
     position:fixed;
@@ -137,9 +137,9 @@ body.opened{
 }
 
 
-/* ==============================
+/* =========================================
    OPENING PARTICLES
-============================== */
+========================================= */
 
 .open-particle{
     position:absolute;
@@ -178,9 +178,9 @@ body.opened{
 }
 
 
-/* ==============================
+/* =========================================
    OPENING CARD
-============================== */
+========================================= */
 
 .open-card{
 
@@ -259,6 +259,8 @@ body.opened{
     line-height:.9;
 
     font-weight:600;
+
+    color:#34443c;
 }
 
 .open-button{
@@ -294,39 +296,41 @@ body.opened{
 }
 
 
-/* ==============================
+/* =========================================
    MAIN PAGE
-============================== */
+========================================= */
 
 .page{
 
     min-height:100vh;
 
-    padding:45px 18px;
+    padding:45px 18px 60px;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
+
+    align-items:flex-start;
 
     position:relative;
 }
 
 
-/* ==============================
+/* =========================================
    MAIN CARD
-============================== */
+========================================= */
 
 .card{
 
     width:min(94vw,680px);
 
+    margin:20px auto 0;
+
     padding:60px 38px;
 
     text-align:center;
 
-    background:rgba(255,255,255,.68);
+    background:rgba(255,255,255,.70);
 
     border:1px solid rgba(193,168,110,.7);
 
@@ -358,9 +362,9 @@ body.opened{
 }
 
 
-/* ==============================
+/* =========================================
    HEADING
-============================== */
+========================================= */
 
 .eyebrow{
 
@@ -403,7 +407,6 @@ body.opened{
     }
 }
 
-
 .name{
 
     margin-top:12px;
@@ -418,9 +421,9 @@ body.opened{
 }
 
 
-/* ==============================
+/* =========================================
    DIVIDER
-============================== */
+========================================= */
 
 .divider{
 
@@ -456,84 +459,86 @@ body.opened{
 }
 
 
-/* ==============================
+/* =========================================
    MESSAGE
-============================== */
+========================================= */
 
 .message{
 
+    display:block;
+
+    width:100%;
+
     max-width:540px;
 
-    margin:auto;
+    margin:0 auto;
 
-    color:#59645e;
+    padding:24px 20px;
 
-    font-size:14px;
+    color:#26372f;
 
-    line-height:2;
+    font-size:15px;
+
+    line-height:2.05;
 
     text-align:center;
+
+    background:rgba(255,255,255,.42);
+
+    border-radius:20px;
+
+    position:relative;
+
+    z-index:10;
 }
 
 .message p{
 
-    margin-bottom:22px;
+    display:block;
 
-    opacity:0;
+    margin-bottom:24px;
 
-    transform:translateY(20px);
+    color:#26372f;
 
-    animation:textReveal 1.2s ease forwards;
+    opacity:1;
+
+    transform:none;
+
+    animation:none;
 }
 
-.message p:nth-child(1){
-    animation-delay:.4s;
-}
-
-.message p:nth-child(2){
-    animation-delay:.8s;
-}
-
-.message p:nth-child(3){
-    animation-delay:1.2s;
-}
-
-.message p:nth-child(4){
-    animation-delay:1.6s;
-}
-
-.message p:nth-child(5){
-    animation-delay:2s;
+.message p:last-child{
+    margin-bottom:0;
 }
 
 .message strong{
 
-    color:#3e5047;
+    color:#172a21;
 
-    font-weight:500;
+    font-weight:600;
 }
 
 
-/* ==============================
-   ENDING HINT
-============================== */
+/* =========================================
+   ENDING
+========================================= */
 
 .ending{
 
-    margin-top:35px;
+    margin-top:32px;
 
-    padding-top:25px;
+    padding-top:26px;
 
     border-top:1px solid #ded4bd;
 
-    opacity:0;
-
-    animation:endReveal 1.5s ease forwards;
-
-    animation-delay:2.4s;
+    animation:endReveal 1.5s ease;
 }
 
 @keyframes endReveal{
+
+    from{
+        opacity:0;
+    }
 
     to{
         opacity:1;
@@ -544,28 +549,30 @@ body.opened{
 
     font-family:"Cormorant Garamond",serif;
 
-    font-size:24px;
+    font-size:25px;
+
+    line-height:1.25;
 
     color:#92794b;
 }
 
 .hint{
 
-    margin-top:10px;
+    margin-top:12px;
 
     font-size:11px;
 
-    letter-spacing:.5px;
+    line-height:1.7;
 
-    color:#7b817b;
+    color:#59645e;
 
     font-style:italic;
 }
 
 
-/* ==============================
+/* =========================================
    FLOATING FLOWERS
-============================== */
+========================================= */
 
 .flower{
 
@@ -583,25 +590,28 @@ body.opened{
 }
 
 .flower.one{
-    top:12%;
-    left:6%;
+    top:10%;
+    left:5%;
 }
 
 .flower.two{
-    top:22%;
-    right:7%;
+    top:20%;
+    right:6%;
+
     animation-delay:1s;
 }
 
 .flower.three{
     bottom:14%;
-    left:8%;
+    left:7%;
+
     animation-delay:2s;
 }
 
 .flower.four{
-    bottom:10%;
-    right:8%;
+    bottom:9%;
+    right:7%;
+
     animation-delay:3s;
 }
 
@@ -617,9 +627,9 @@ body.opened{
 }
 
 
-/* ==============================
-   FALLING PETALS
-============================== */
+/* =========================================
+   FALLING GOLDEN PARTICLES
+========================================= */
 
 .petal{
 
@@ -668,32 +678,143 @@ body.opened{
 }
 
 
-/* ==============================
+/* =========================================
    MOBILE
-============================== */
+========================================= */
 
 @media(max-width:600px){
 
+    body.opened{
+        overflow-x:hidden;
+        overflow-y:auto;
+    }
+
     .page{
-        padding:30px 13px;
+
+        min-height:100vh;
+
+        padding:25px 14px 60px;
+
+        display:block;
     }
 
     .card{
-        padding:45px 20px;
+
+        width:100%;
+
+        margin:0 auto;
+
+        padding:45px 18px;
+
         border-radius:28px;
     }
 
-    .message{
-        font-size:13px;
-        line-height:1.95;
+    .eyebrow{
+
+        font-size:9px;
+
+        letter-spacing:4px;
     }
 
-    .flower{
-        font-size:21px;
+    .title{
+
+        font-size:43px;
     }
 
     .name{
-        font-size:32px;
+
+        font-size:33px;
+    }
+
+    .message{
+
+        display:block;
+
+        width:100%;
+
+        padding:22px 16px;
+
+        font-size:14px;
+
+        line-height:1.95;
+
+        color:#26372f;
+
+        background:rgba(255,255,255,.48);
+
+        border-radius:20px;
+    }
+
+    .message p{
+
+        display:block;
+
+        margin-bottom:23px;
+
+        color:#26372f;
+
+        opacity:1;
+
+        transform:none;
+
+        animation:none;
+    }
+
+    .message strong{
+
+        color:#172a21;
+
+        font-weight:600;
+    }
+
+    .ending{
+
+        margin-top:30px;
+
+        padding-top:24px;
+    }
+
+    .ending-main{
+
+        font-size:22px;
+    }
+
+    .hint{
+
+        font-size:10px;
+
+        line-height:1.7;
+    }
+
+    .flower{
+
+        font-size:21px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media(max-width:360px){
+
+    .card{
+        padding:38px 14px;
+    }
+
+    .title{
+        font-size:38px;
+    }
+
+    .message{
+        padding:20px 13px;
+        font-size:13px;
+    }
+
+    .ending-main{
+        font-size:20px;
     }
 
 }
@@ -705,23 +826,46 @@ body.opened{
 <body>
 
 
-<!-- BACKGROUND -->
+<!-- =========================================
+     BACKGROUND GLOW
+========================================= -->
 
 <div class="glow one"></div>
 <div class="glow two"></div>
 
 
-<!-- ==============================
-     OPENING
-============================== -->
+<!-- =========================================
+     OPENING SCREEN
+========================================= -->
 
 <section class="opening" id="opening">
 
-    <span class="open-particle" style="left:8%;animation-delay:0s"></span>
-    <span class="open-particle" style="left:25%;animation-delay:2s"></span>
-    <span class="open-particle" style="left:45%;animation-delay:4s"></span>
-    <span class="open-particle" style="left:65%;animation-delay:1s"></span>
-    <span class="open-particle" style="left:85%;animation-delay:3s"></span>
+    <!-- Opening particles -->
+
+    <span
+        class="open-particle"
+        style="left:8%;animation-delay:0s">
+    </span>
+
+    <span
+        class="open-particle"
+        style="left:25%;animation-delay:2s">
+    </span>
+
+    <span
+        class="open-particle"
+        style="left:45%;animation-delay:4s">
+    </span>
+
+    <span
+        class="open-particle"
+        style="left:65%;animation-delay:1s">
+    </span>
+
+    <span
+        class="open-particle"
+        style="left:85%;animation-delay:3s">
+    </span>
 
 
     <div class="open-card">
@@ -750,20 +894,33 @@ body.opened{
 </section>
 
 
-<!-- ==============================
-     MAIN MESSAGE
-============================== -->
+<!-- =========================================
+     MAIN CONTENT
+========================================= -->
 
 <main class="page">
 
 
-    <!-- Floating flowers -->
+    <!-- Floating decorations -->
 
-    <div class="flower one">🌸</div>
-    <div class="flower two">🌿</div>
-    <div class="flower three">🌸</div>
-    <div class="flower four">🌿</div>
+    <div class="flower one">
+        🌸
+    </div>
 
+    <div class="flower two">
+        🌿
+    </div>
+
+    <div class="flower three">
+        🌸
+    </div>
+
+    <div class="flower four">
+        🌿
+    </div>
+
+
+    <!-- Main message card -->
 
     <section class="card">
 
@@ -788,6 +945,10 @@ body.opened{
         <div class="divider"></div>
 
 
+        <!-- =====================================
+             PERSONAL WISH
+        ====================================== -->
+
         <div class="message">
 
 
@@ -797,9 +958,9 @@ body.opened{
 
 
             <p>
-                On this beautiful occasion, I wanted to take a
-                moment to send my warmest wishes as you step
-                into what promises to be one of the most
+                On this beautiful occasion, I wanted to take
+                a moment to send my warmest wishes as you
+                step into what promises to be one of the most
                 meaningful chapters of your life.
             </p>
 
@@ -850,30 +1011,39 @@ body.opened{
 
 
             <p>
-                Once again, <strong>congratulations on this
-                beautiful beginning.</strong> May this be the
-                first page of a truly remarkable story, and may
-                every page that follows be filled with happiness,
-                love, laughter, companionship, and blessings.
+                Once again,
+                <strong>
+                    congratulations on this beautiful beginning.
+                </strong>
+
+                May this be the first page of a truly remarkable
+                story, and may every page that follows be filled
+                with happiness, love, laughter, companionship,
+                and blessings.
             </p>
 
 
         </div>
 
 
-        <!-- ENDING -->
+        <!-- =====================================
+             ENDING + SUBTLE HINT
+        ====================================== -->
 
         <div class="ending">
+
 
             <div class="ending-main">
                 Wishing you a lifetime of beautiful moments
                 and an extraordinary journey ahead. 🤍
             </div>
 
+
             <div class="hint">
                 With warmest wishes, from someone who has
                 a very good reason to wish you today. ✨
             </div>
+
 
         </div>
 
@@ -885,28 +1055,25 @@ body.opened{
 
 <script>
 
-/* ==============================
+/* =========================================
    OPEN MESSAGE
-============================== */
+========================================= */
 
 function openMessage(){
 
-    document
-        .getElementById("opening")
-        .classList
-        .add("hide");
+    const opening =
+        document.getElementById("opening");
 
-    document
-        .body
-        .classList
-        .add("opened");
+    opening.classList.add("hide");
+
+    document.body.classList.add("opened");
 
 }
 
 
-/* ==============================
+/* =========================================
    FALLING GOLDEN PARTICLES
-============================== */
+========================================= */
 
 const symbols = [
     "✦",
